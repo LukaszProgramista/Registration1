@@ -1,6 +1,11 @@
 <?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="vievport" content="width=device-width, initialscale=1.0"/>
+	<title>Salonik fryzjerski Nożyczki</title>
+</head>
 
 <body>
   <div class="header">

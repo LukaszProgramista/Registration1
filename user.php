@@ -28,12 +28,12 @@ $result = mysqli_query($conn,$sql);
 <head>	
 	<title>Edit Data</title>
   <head>
-    <link rel='stylesheet' href='style.css'>
+    <link rel='stylesheet' href='css/style.css'>
 </head>
 </head>
 
 <div class="header">
-	<h2>Home Page</h2>
+	<h2>Dane uzytkownika</h2>
     <?php echo"Witaj ".$_SESSION['username'];?>
 </div>
 <div class="content">
