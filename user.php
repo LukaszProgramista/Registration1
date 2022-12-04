@@ -13,9 +13,9 @@
   	header("location: login.php");
   }
 
-  // Create connection
+  // Tworzenie połączenia z bazą
 $conn = mysqli_connect('localhost', 'root', '', 'salonfryzjerski');
-// Check connection
+// Sprawdzenie czy połączenie się udało
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
@@ -31,26 +31,29 @@ $result = mysqli_query($conn,$sql);
     <link rel='stylesheet' href='css/style.css'>
 </head>
 </head>
-
-<div class="header">
-	<h2>Dane uzytkownika</h2>
-    <?php echo"Witaj ".$_SESSION['username'];?>
+<body>
+<div class="navbar">
+    <div class="container">
+      <div class="header">
+        <h2>Dane uzytkownika</h2>
+          <?php echo"Witaj ".$_SESSION['username'];?>
+      </div>
+      <div class="content">
+          <?php  if (isset($_SESSION['username'])) : ?>
+            <p> <a href="index.php?logout='1'" style="color: red;">Wyloguj</a> </p>
+            <p> <a href="index.php" style="color: green;">Strona główna</a> </p>
+          <?php endif ?>
+      </div>
+    </div>
 </div>
-<div class="content">
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['username'])) : ?>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-      <p> <a href="index.php" style="color: green;">Strona główna</a> </p>
-    <?php endif ?>
-</div>
-    <form method="post" action="user.php">
-        Email: <input type="email" name="email"></br>
-        Stare hasło: <input type="password" name="starehaslo"></br>
-        Nowe hasło: <input type="password" name="nowehaslo"></br>
-        <input type="submit" name="update" value="Update"></td>
-  	</form>
-    <?php include('errors.php'); ?>
-    <p> Twoje zarezerwowane wizyty </p>
+          <form method="post" action="user.php">
+              Email: <input type="email" name="email"></br>
+              Stare hasło: <input type="password" name="starehaslo"></br>
+              Nowe hasło: <input type="password" name="nowehaslo"></br>
+              <input type="submit" name="aktualizuj" value="Aktualizuj"></td>
+          </form>
+          <?php include('errors.php'); ?>
+          <p> Twoje zarezerwowane wizyty </p>
 <?php
 echo 
 '<table>
@@ -72,7 +75,7 @@ while($row = mysqli_fetch_assoc($result))
 }
 ?>
 
-
+</body>
 </html>
 
 

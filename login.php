@@ -4,24 +4,24 @@
 
 <body>
   <div class="header">
-  	<h2>Login</h2>
+  	<h2>Logowanie</h2>
   </div>
 	 
   <form method="post" action="login.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
-  		<label>Username</label>
+  		<label>Nazwa</label>
   		<input type="text" name="username" >
   	</div>
   	<div class="input-group">
-  		<label>Password</label>
+  		<label>Hasło</label>
   		<input type="password" name="password">
   	</div>
   	<div class="input-group">
-  		<button type="submit" name="login_user">Login</button>
+  		<button type="submit" name="login_user">Logowanie</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="register.php">Sign up</a>
+  		Jeszcze nie masz konta? <a href="register.php">Zarejestruj się</a>
   	</p>
   </form>
 </body>

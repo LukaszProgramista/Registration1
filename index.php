@@ -15,9 +15,9 @@
   }
 
 
-// Create connection
+// Stworzenie połączenie z bazą
 $conn = mysqli_connect('localhost', 'root', '', 'salonfryzjerski');
-// Check connection
+// Sprawdzanie czy połączenie z bazą się udało
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
@@ -45,7 +45,7 @@ $sql = 'SELECT * FROM wizyty';
           <!-- logged in user information -->
           <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigation">
           <?php  if (isset($_SESSION['username'])) : ?>
-            <li class="logout"><a href="index.php?logout='1'">Logout</a></li>
+            <li class="logout"><a href="index.php?logout='1'">Wyloguj</a></li>
             <li class="profil"><a href="user.php">Profil</a></li>
           <?php endif ?>
         </nav>
@@ -56,7 +56,7 @@ $sql = 'SELECT * FROM wizyty';
 
   <form action="index.php" method="POST">
   <?php
-    if($_SESSION['username']=='admin')
+    if($_SESSION['username']=='admin') // jeśli użytkownik jest administratorem
     {
       
       echo 
@@ -74,7 +74,7 @@ $sql = 'SELECT * FROM wizyty';
         $result = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_assoc($result))
         {
-          if(intval($row['godzina'])==$i)
+          if(intval($row['godzina'])==$i) //intval - parsowanie stringa do inta
           {
               echo 
               '<tr>
@@ -103,7 +103,7 @@ $sql = 'SELECT * FROM wizyty';
       }
       echo'</table>';
     }
-    else
+    else //jeśli loguje się zwykły użytkownik
     {
       echo '<table>
       <tr>
@@ -119,7 +119,7 @@ $sql = 'SELECT * FROM wizyty';
         $result = mysqli_query($conn,$sql);
         while($row = mysqli_fetch_assoc($result))
         {
-          if(intval($row['godzina'])==$i)
+          if(intval($row['godzina'])==$i) // intval parsuje stringa na inta
           {
               echo 
               '<tr>
@@ -145,7 +145,7 @@ $sql = 'SELECT * FROM wizyty';
   </section>
     <div class="data">
       <p> Wybierz godzinę wizyty 
-        <select name="godzina_wizyty">
+      <select name="godzina_wizyty">
         <option value="10">10</option>
         <option value="11">11</option>
         <option value="12">12</option>
